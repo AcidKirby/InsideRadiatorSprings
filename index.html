@@ -195,7 +195,7 @@
 
   <div class="ar-viewer">
 
- 
+  <!-- 👇 SKETCHFAB = VISUELE PREVIEW -->
   <div class="sketchfab-embed-wrapper">
     <iframe
       title="Willy's Butte"
@@ -207,21 +207,19 @@
   </div>
 
  
-  <model-viewer
-    id="arModel"
-    src="models/willys-butte.glb"
-    ar
-    ar-modes="webxr scene-viewer quick-look"
-    camera-controls
-    style="width:0;height:0;opacity:0;position:absolute;">
-    
-    <button slot="ar-button" id="realArBtn"></button>
-  </model-viewer>
+ <model-viewer
+  id="arModel"
+  src="models/willys-butte.glb"
+  ios-src="models/willys-butte.usdz"
+  ar
+  ar-modes="webxr scene-viewer quick-look"
+  camera-controls
+  style="width:1px;height:1px;opacity:0;position:absolute;pointer-events:none;">
+</model-viewer>
 
- 
-  <button class="button ar-main-btn" onclick="openAR()">
-    Bekijk in AR 
-  </button>
+<button class="button ar-main-btn" onclick="openAR()">
+  Bekijk in AR 
+</button>
 
 </div>
 </section>
@@ -316,7 +314,13 @@ document.querySelectorAll(".story-stop").forEach(el => {
 });
 
 function openAR() {
-  document.getElementById("realArBtn").click();
+  const model = document.getElementById("arModel");
+
+  if (model && typeof model.activateAR === "function") {
+    model.activateAR();
+  } else {
+    alert("AR wordt niet ondersteund op dit apparaat of deze browser.");
+  }
 }
 </script>
 </body>
