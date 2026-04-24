@@ -4,7 +4,7 @@ Interactieve storywebsite voor een individueel AR project, gebaseerd op de werel
 
 ##  Live Prototype
 Bekijk de website hier:  
- https://AcidKirby.github.io/InsideRadiatorSprings/
+https://acidkirby.github.io/insideradiatorsprings/
 
 ---
 
